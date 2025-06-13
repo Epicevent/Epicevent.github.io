@@ -13,14 +13,7 @@ kramdown:
   syntax_highlighter_opts:
     disable : true
 
-jektex:
-  cache_dir: ".jektex-cache"
-  ignore: ["*.xml"]
-  silent: false
-  macros:
-    - ["\\Q", "\\mathbb{Q}"]
-    - ["\\C", "\\mathbb{C}"]
-
+mathjax: true
 
 # (선택) collections 항목 제거 또는 빈 객체로 설정
 collections: {}
