@@ -1,0 +1,16 @@
+entries:
+  - title: 미적분학
+    url: /calculus.html
+    thumbnail: /assets/img/calculus.png
+    post_list:
+      category: calculus
+      limit: 5
+      show_more: true
+      show_more_text: 더 보기
+      show_more_url: "/calculus.html"
+  - title: all posts
+    post_list:
+      limit: 5
+      show_more: true
+      show_more_text: See archive...
+      show_more_url: "/archive.html"

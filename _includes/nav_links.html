@@ -1,0 +1,27 @@
+{% assign cat = page.categories[0] %}
+{% assign posts_in_cat = site.posts | where_exp: "p", "p.categories contains cat" | sort: "series_order" %}
+{% assign idx = nil %}
+{% for p in posts_in_cat %}
+  {% if p.url == page.url %}
+    {% assign idx = forloop.index0 %}
+  {% endif %}
+{% endfor %}
+{% assign prev_idx = idx | minus: 1 %}
+{% assign next_idx = idx | plus: 1 %}
+{% assign last_idx = posts_in_cat.size | minus: 1 %}
+
+<nav style="text-align:center; margin:2rem 0;">
+  {% if idx != nil and idx > 0 %}
+    {% assign prev = posts_in_cat[prev_idx] %}
+    <a href="{{ prev.url | relative_url }}" title="{{ prev.title }}">← 이전글</a>
+  {% endif %}
+
+  <a href="{{ '/' | append: cat | append: '.html' | relative_url }}">목차</a>
+
+  {% if idx != nil and idx < last_idx %}
+    {% assign next = posts_in_cat[next_idx] %}
+    <a href="{{ next.url | relative_url }}" title="{{ next.title }}">다음글 →</a>
+  {% endif %}
+</nav>
+
+
